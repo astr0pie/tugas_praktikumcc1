@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinx – Arcane Fan Page</title>
+    <meta name="description" content="Halaman penggemar Jinx dari serial animasi Arcane.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #12061f;
+            --ink-2: #1d0b33;
+            --pink: #ff2e9a;
+            --cyan: #2ee6d6;
+            --violet: #6a2cff;
+            --paper: #cfe6ff;
+            --text: #f2eaff;
+            --dim: #a898c4;
+            --marker: "Permanent Marker", "Comic Sans MS", cursive;
+            --sans: "Barlow", "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--ink);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        img { display: block; max-width: 100%; }
+        a { color: inherit; }
+
+        .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+
+        /* ---------- Navigasi ---------- */
+        nav {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            z-index: 3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px clamp(20px, 5vw, 64px);
+        }
+        nav .logo { font-family: var(--marker); font-size: 26px; color: var(--pink); text-decoration: none; }
+        nav ul { display: flex; gap: 28px; list-style: none; }
+        nav ul a { text-decoration: none; font-weight: 500; font-size: 16px; color: var(--paper); transition: color .2s; }
+        nav ul a:hover { color: var(--cyan); }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 120px clamp(20px, 5vw, 64px) 80px;
+            background:
+                linear-gradient(180deg, rgba(18,6,31,.55) 0%, rgba(18,6,31,.82) 70%, var(--ink) 100%),
+                url("img/coretan.png") center / cover no-repeat;
+        }
+        .hero h1 {
+            font-family: var(--marker);
+            font-weight: 400;
+            font-size: clamp(6rem, 26vw, 21rem);
+            line-height: .85;
+            color: var(--pink);
+            transform: rotate(-3deg);
+            text-shadow:
+                6px 6px 0 var(--violet),
+                0 0 30px rgba(255,46,154,.65),
+                0 0 90px rgba(255,46,154,.35);
+            animation: flicker 1.6s .2s both;
+        }
+        @keyframes flicker {
+            0%, 18%, 22%, 56%, 100% { opacity: 1; }
+            20%, 54% { opacity: .15; }
+            58% { opacity: .6; }
+            60% { opacity: 1; }
+        }
+        .hero p {
+            max-width: 30ch;
+            margin-top: 28px;
+            font-size: clamp(22px, 3vw, 32px);
+            line-height: 1.25;
+            font-weight: 700;
+        }
+        .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+        .btn {
+            font-weight: 700;
+            font-size: 17px;
+            text-decoration: none;
+            padding: 14px 30px;
+            border: 2px solid var(--cyan);
+            color: var(--ink);
+            background: var(--cyan);
+            border-radius: 4px;
+            transition: transform .2s, background .2s, color .2s;
+        }
+        .btn:hover { transform: translate(-3px, -3px); box-shadow: 4px 4px 0 var(--pink); }
+        .btn.ghost { background: transparent; color: var(--cyan); }
+
+        /* ---------- Bagian umum ---------- */
+        section { padding: clamp(72px, 10vw, 130px) 0; }
+        h2 {
+            font-family: var(--marker);
+            font-weight: 400;
+            font-size: clamp(2.6rem, 6vw, 4.6rem);
+            line-height: 1;
+            color: var(--cyan);
+            margin-bottom: 28px;
+            text-shadow: 3px 3px 0 var(--violet);
+        }
+
+        /* ---------- Tentang ---------- */
+        .about {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: clamp(32px, 6vw, 80px);
+            align-items: center;
+        }
+        .about p { max-width: 52ch; color: #ddd0f2; }
+        .about p + p { margin-top: 18px; }
+
+        .sticker {
+            position: relative;
+            transform: rotate(2.5deg);
+        }
+        .sticker::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--pink);
+            transform: translate(16px, 16px) rotate(2deg);
+            border-radius: 6px;
+        }
+        .sticker img {
+            position: relative;
+            width: 100%;
+            border: 5px solid var(--paper);
+            border-radius: 6px;
+        }
+
+        /* ---------- Senjata ---------- */
+        .arsenal { background: var(--ink-2); }
+        .guns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .gun {
+            padding: 28px 26px 30px;
+            border: 2px solid var(--violet);
+            border-radius: 6px;
+            background: rgba(106,44,255,.1);
+        }
+        .gun:nth-child(1) { border-color: var(--pink); }
+        .gun:nth-child(2) { border-color: var(--cyan); }
+        .gun h3 { font-family: var(--marker); font-weight: 400; font-size: 2rem; line-height: 1.1; margin-bottom: 10px; }
+        .gun:nth-child(1) h3 { color: var(--pink); }
+        .gun:nth-child(2) h3 { color: var(--cyan); }
+        .gun:nth-child(3) h3 { color: var(--paper); }
+        .gun p { font-size: 17px; color: var(--dim); }
+
+        /* ---------- Galeri ---------- */
+        .gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+        .gallery figure { overflow: hidden; border-radius: 6px; border: 3px solid var(--paper); background: var(--ink-2); }
+        .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+        .gallery figure:hover img { transform: scale(1.04); }
+        .gallery .wide { grid-column: span 6; aspect-ratio: 16 / 7; }
+        .gallery .half { grid-column: span 3; aspect-ratio: 4 / 3; }
+        .gallery figcaption { display: none; }
+
+        /* ---------- Footer ---------- */
+        footer {
+            padding: 40px 0 48px;
+            border-top: 2px solid var(--violet);
+            font-size: 15px;
+            color: var(--dim);
+        }
+        footer strong { font-family: var(--marker); font-weight: 400; font-size: 22px; color: var(--pink); display: block; margin-bottom: 6px; }
+
+        :focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+        @media (max-width: 800px) {
+            nav ul { gap: 18px; }
+            .about, .guns { grid-template-columns: 1fr; }
+            .gallery .wide, .gallery .half { grid-column: span 6; aspect-ratio: 16 / 10; }
+            .hero h1 { transform: rotate(-2deg); }
+        }
+        @media (max-width: 480px) {
+            nav ul li:first-child { display: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a class="logo" href="#atas">Jinx</a>
+        <ul>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#senjata">Senjata</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="atas">
+        <h1>JINX</h1>
+        <p>Gadis paling kacau dari lorong-lorong Zaun.</p>
+        <div class="actions">
+            <a class="btn" href="#tentang">Kenalan dulu</a>
+            <a class="btn ghost" href="#galeri">Lihat galeri</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="tentang">
+            <div class="wrap about">
+                <div>
+                    <h2>Siapa Jinx?</h2>
+                    <p>Jinx adalah tokoh dari serial animasi Arcane, yang berlatar di dunia League of Legends. Dulu namanya Powder, anak kecil yang tumbuh di Zaun bersama kakaknya, Vi.</p>
+                    <p>Setelah semua yang menimpanya di kota bawah tanah itu, Powder berubah menjadi Jinx: berambut biru panjang, penuh ledakan, dan tidak pernah berhenti mencoret dinding dengan gambar-gambarnya.</p>
+                    <p>Ceritanya berpusat pada dua kota kembar, Piltover yang megah dan Zaun yang keras, serta dua saudari yang terpisah oleh keduanya.</p>
+                </div>
+                <div class="sticker">
+                    <img src="img/jinx-hoodie.png" alt="Ilustrasi Jinx berkerudung dengan gaya halftone biru dan merah muda" width="736" height="414">
+                </div>
+            </div>
+        </section>
+
+        <section class="arsenal" id="senjata">
+            <div class="wrap">
+                <h2>Mainan favorit</h2>
+                <div class="guns">
+                    <article class="gun">
+                        <h3>Pow-Pow</h3>
+                        <p>Senapan mesin berputar yang rapat tembakannya. Berisik, boros peluru, dan sangat disukai Jinx.</p>
+                    </article>
+                    <article class="gun">
+                        <h3>Fishbones</h3>
+                        <p>Peluncur roket berbentuk hiu. Sekali tembak, satu lorong ikut berantakan.</p>
+                    </article>
+                    <article class="gun">
+                        <h3>Zapper</h3>
+                        <p>Pistol kecil yang cepat dan lincah, cocok untuk Jinx yang tidak bisa diam.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri">
+            <div class="wrap">
+                <h2>Galeri</h2>
+                <div class="gallery">
+                    <figure class="wide">
+                        <img src="img/coretan.png" alt="Dinding penuh coretan neon ungu, merah muda, dan biru khas Jinx" width="1200" height="675" loading="lazy">
+                    </figure>
+                    <figure class="half">
+                        <img src="img/jinx-pixel.png" alt="Jinx tampak samping dengan tulisan JINX dan dua senjatanya" width="735" height="527" loading="lazy">
+                    </figure>
+                    <figure class="half">
+                        <img src="img/jinx-hoodie.png" alt="Jinx berkerudung dikelilingi senjata dan bintang ungu" width="736" height="414" loading="lazy">
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <strong>Jinx</strong>
+            Situs penggemar, bukan situs resmi. Arcane, Jinx, dan League of Legends adalah milik Riot Games dan Fortiche. Seluruh gambar adalah milik pembuat aslinya.
+        </div>
+    </footer>
+
+</body>
+</html>
